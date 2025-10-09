@@ -1,0 +1,48 @@
+import advanced from "./modules/advanced.js";
+import basic from "./modules/basic.js";
+import code from "./modules/code.js";
+import decorators from "./modules/decorators.js";
+import list from "./modules/list.js";
+import media from "./modules/media.js";
+import table from "./modules/table.js";
+
+const parse = (text: string): string => {
+    // Paso 1: Procesar media placeholders (necesita URLs reales para extraer IDs)
+    let protectedText = media.insertPlaceholders(text);
+
+    // Paso 2: Procesar advanced placeholders
+    protectedText = advanced.insertPlaceholders(protectedText);
+
+    // Paso 3: Proteger URLs
+    const urlRegex = /(https?:\/\/[^)\s}]+)/g;
+    const urls: string[] = [];
+    protectedText = protectedText.replace(urlRegex, (match) => {
+        urls.push(match);
+        return `§§§URL_${urls.length - 1}§§§`;
+    });
+
+    // Paso 3: Procesar code, table, list, basic y decorators placeholders
+    protectedText = code.insertPlaceholders(protectedText);
+    protectedText = table.insertPlaceholders(protectedText);
+    protectedText = list.insertPlaceholders(protectedText);
+    protectedText = basic.insertPlaceholders(protectedText);
+    protectedText = decorators.insertPlaceholders(protectedText);
+
+    // Paso 4: Reemplazar placeholders por HTML
+    protectedText = media.replacePlaceholders(protectedText);
+    protectedText = advanced.replacePlaceholders(protectedText);
+    protectedText = code.replacePlaceholders(protectedText);
+    protectedText = table.replacePlaceholders(protectedText);
+    protectedText = basic.replacePlaceholders(protectedText);
+    protectedText = list.replacePlaceholders(protectedText);
+    protectedText = decorators.replacePlaceholders(protectedText);
+
+    // Paso 5: Restaurar URLs
+    urls.forEach((url, index) => {
+        protectedText = protectedText.replace(`§§§URL_${index}§§§`, url);
+    });
+
+    return protectedText;
+};
+
+export default parse;

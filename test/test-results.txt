@@ -1,0 +1,73 @@
+Test 1:
+Input: 1. texto
+2. *texto*
+3. /texto/
+Expected: <ol class="jt-yxtus">
+<li class="jt-yxtus">texto</li>
+<li class="jt-yxtus"><strong class="jt-yxtus">texto</strong></li>
+<li class="jt-yxtus"><em class="jt-yxtus">texto</em></li>
+</ol>
+Got: <ol class="jt-yxtus">
+<li class="jt-yxtus">texto</li>
+<li class="jt-yxtus"><strong class="jt-yxtus">texto</strong></li>
+<li class="jt-yxtus"><em class="jt-yxtus">texto</em></li>
+</ol>
+Pass: YES
+---
+Test 2:
+Input: - texto
+- [texto](url)
+- texto
+Expected: <ul class="jt-yxtus">
+<li class="jt-yxtus">texto</li>
+<li class="jt-yxtus"><a href="url" target="_blank" class="jt-yxtus jt-yxtus-link">texto</a></li>
+<li class="jt-yxtus">texto</li>
+</ul>
+Got: <ul class="jt-yxtus">
+<li class="jt-yxtus">texto</li>
+<li class="jt-yxtus"><a href="url" target="_blank" class="jt-yxtus jt-yxtus-link">texto</a></li>
+<li class="jt-yxtus">texto</li>
+</ul>
+Pass: YES
+---
+Test 3:
+Input: - [ ] Tarea pendiente
+- [x] Tarea completada
+- [ ] Otra tarea
+Expected: <ul class="jt-yxtus task-list">
+<li class="jt-yxtus"><input type="checkbox" disabled class="jt-yxtus"> Tarea pendiente</li>
+<li class="jt-yxtus"><input type="checkbox" checked disabled class="jt-yxtus"> Tarea completada</li>
+<li class="jt-yxtus"><input type="checkbox" disabled class="jt-yxtus"> Otra tarea</li>
+</ul>
+Got: <ul class="jt-yxtus task-list">
+<li class="jt-yxtus"><input type="checkbox" disabled class="jt-yxtus"> Tarea pendiente</li>
+<li class="jt-yxtus"><input type="checkbox" checked disabled class="jt-yxtus"> Tarea completada</li>
+<li class="jt-yxtus"><input type="checkbox" disabled class="jt-yxtus"> Otra tarea</li>
+</ul>
+Pass: YES
+---
+Test 4:
+Input: This is {HTML} and it works.
+
+*[HTML]: Hyper Text Markup Language
+Expected: <p class="jt-yxtus">This is <abbr title="Hyper Text Markup Language" class="jt-yxtus">HTML</abbr> and it works.</p>
+Got: <p class="jt-yxtus">This is <abbr title="Hyper Text Markup Language" class="jt-yxtus">HTML</abbr> and it works.</p>
+Pass: YES
+---
+Test 5:
+Input: {CSS} is cool.
+
+*[CSS]: Cascading Style Sheets
+*[HTML]: Hyper Text Markup Language
+Expected: <p class="jt-yxtus"><abbr title="Cascading Style Sheets" class="jt-yxtus">CSS</abbr> is cool.</p>
+Got: <p class="jt-yxtus"><abbr title="Cascading Style Sheets" class="jt-yxtus">CSS</abbr> is cool.</p>
+Pass: YES
+---
+Test 6:
+Input: *Bold* text and {ABBR}.
+
+*[ABBR]: Abbreviation
+Expected: <p class="jt-yxtus"><strong class="jt-yxtus">Bold</strong> text and <abbr title="Abbreviation" class="jt-yxtus">ABBR</abbr>.</p>
+Got: <p class="jt-yxtus"><strong class="jt-yxtus">Bold</strong> text and <abbr title="Abbreviation" class="jt-yxtus">ABBR</abbr>.</p>
+Pass: YES
+---
