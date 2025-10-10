@@ -127,6 +127,18 @@ const tests = [
         expected: '<blockquote class="jt-yxtus warning"><div class="jt-yxtus blockquote-title">Cuidado</div><br/>Esto es peligroso</blockquote>'
     },
     {
+        input: '> This is *bold* text',
+        expected: '<blockquote class="jt-yxtus">This is <strong class="jt-yxtus">bold</strong> text.</blockquote>'
+    },
+    {
+        input: '> !{red}(Red text) here',
+        expected: '<blockquote class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">Red text</span> here.</blockquote>'
+    },
+    {
+        input: '> First *bold*\n> Second !{blue}(blue)',
+        expected: '<blockquote class="jt-yxtus">First <strong class="jt-yxtus">bold</strong><br/>Second <span class="jt-yxtus" style="color:blue!important">blue</span></blockquote>'
+    },
+    {
         input: 'This is {HTML} and it works.\n\n*[HTML]: Hyper Text Markup Language',
         expected: '<p class="jt-yxtus">This is <abbr title="Hyper Text Markup Language" class="jt-yxtus">HTML</abbr> and it works.</p>'
     },

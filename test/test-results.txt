@@ -223,6 +223,25 @@ Got: <blockquote class="jt-yxtus warning"><div class="jt-yxtus blockquote-title"
 Pass: YES
 ---
 Test 31:
+Input: > This is *bold* text
+Expected: <blockquote class="jt-yxtus">This is <strong class="jt-yxtus">bold</strong> text.</blockquote>
+Got: <blockquote class="jt-yxtus">This is <strong class="jt-yxtus">bold</strong> text.</blockquote>
+Pass: YES
+---
+Test 32:
+Input: > !{red}(Red text) here
+Expected: <blockquote class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">Red text</span> here.</blockquote>
+Got: <blockquote class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">Red text</span> here.</blockquote>
+Pass: YES
+---
+Test 33:
+Input: > First *bold*
+> Second !{blue}(blue)
+Expected: <blockquote class="jt-yxtus">First <strong class="jt-yxtus">bold</strong><br/>Second <span class="jt-yxtus" style="color:blue!important">blue</span></blockquote>
+Got: <blockquote class="jt-yxtus">First <strong class="jt-yxtus">bold</strong><br/>Second <span class="jt-yxtus" style="color:blue!important">blue</span></blockquote>
+Pass: YES
+---
+Test 34:
 Input: This is {HTML} and it works.
 
 *[HTML]: Hyper Text Markup Language
@@ -230,7 +249,7 @@ Expected: <p class="jt-yxtus">This is <abbr title="Hyper Text Markup Language" c
 Got: <p class="jt-yxtus">This is <abbr title="Hyper Text Markup Language" class="jt-yxtus">HTML</abbr> and it works.</p>
 Pass: YES
 ---
-Test 32:
+Test 35:
 Input: {CSS} is cool.
 
 *[CSS]: Cascading Style Sheets
@@ -239,7 +258,7 @@ Expected: <p class="jt-yxtus"><abbr title="Cascading Style Sheets" class="jt-yxt
 Got: <p class="jt-yxtus"><abbr title="Cascading Style Sheets" class="jt-yxtus">CSS</abbr> is cool.</p>
 Pass: YES
 ---
-Test 33:
+Test 36:
 Input: *Bold* text and {ABBR}.
 
 *[ABBR]: Abbreviation
@@ -247,55 +266,55 @@ Expected: <p class="jt-yxtus"><strong class="jt-yxtus">Bold</strong> text and <a
 Got: <p class="jt-yxtus"><strong class="jt-yxtus">Bold</strong> text and <abbr title="Abbreviation" class="jt-yxtus">ABBR</abbr>.</p>
 Pass: YES
 ---
-Test 34:
+Test 37:
 Input: Texto ==resaltado==.
 Expected: <p class="jt-yxtus">Texto <mark class="jt-yxtus">resaltado</mark>.</p>
 Got: <p class="jt-yxtus">Texto <mark class="jt-yxtus">resaltado</mark>.</p>
 Pass: YES
 ---
-Test 35:
+Test 38:
 Input: Love this ;heart;.
 Expected: <p class="jt-yxtus">Love this <i class="jt-yxtus ico-heart"></i>.</p>
 Got: <p class="jt-yxtus">Love this <i class="jt-yxtus ico-heart"></i>.</p>
 Pass: YES
 ---
-Test 36:
+Test 39:
 Input: Great job ;check;.
 Expected: <p class="jt-yxtus">Great job <i class="jt-yxtus ico-check"></i>.</p>
 Got: <p class="jt-yxtus">Great job <i class="jt-yxtus ico-check"></i>.</p>
 Pass: YES
 ---
-Test 37:
+Test 40:
 Input: Unknown ;unknown;.
 Expected: <p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>
 Got: <p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>
 Pass: YES
 ---
-Test 38:
+Test 41:
 Input: !{red}(This is red)
 Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">This is red</span></p>
 Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">This is red</span></p>
 Pass: YES
 ---
-Test 39:
+Test 42:
 Input: !{blue}(Blue text) and normal
 Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:blue!important">Blue text</span> and normal</p>
 Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:blue!important">Blue text</span> and normal</p>
 Pass: YES
 ---
-Test 40:
+Test 43:
 Input: !{#ff0000}(Hex color)
 Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#ff0000!important">Hex color</span></p>
 Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#ff0000!important">Hex color</span></p>
 Pass: YES
 ---
-Test 41:
+Test 44:
 Input: !{#4caf50}(/Hola/ *mundo*) mundial.
 Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#4caf50!important"><em class="jt-yxtus">Hola</em> <strong class="jt-yxtus">mundo</strong></span> mundial.</p>
 Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#4caf50!important"><em class="jt-yxtus">Hola</em> <strong class="jt-yxtus">mundo</strong></span> mundial.</p>
 Pass: YES
 ---
-Test 42:
+Test 45:
 Input: | Header | !{red}(Red) |
 | --- | --- |
 | Cell | Normal |
@@ -305,11 +324,11 @@ Got:
 <table class="jt-yxtus"><thead><tr><th>Header</th><th><span class="jt-yxtus" style="color:red!important">Red</span></th></tr></thead><tbody><tr><td>Cell</td><td>Normal</td></tr></tbody></table>
 Pass: YES
 ---
-Test 43:
+Test 46:
 Input: [!{blue}(Blue link)](http://example.com)
 Expected: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>
 Got: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>
 Pass: YES
 ---
-Tests passed: 43/43
+Tests passed: 46/46
 All tests passed successfully!
