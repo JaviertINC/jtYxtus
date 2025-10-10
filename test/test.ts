@@ -153,6 +153,30 @@ const tests = [
     {
         input: 'Unknown ;unknown;.',
         expected: '<p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>'
+    },
+    {
+        input: '!{red}(This is red)',
+        expected: '<p class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">This is red</span></p>'
+    },
+    {
+        input: '!{blue}(Blue text) and normal',
+        expected: '<p class="jt-yxtus"><span class="jt-yxtus" style="color:blue!important">Blue text</span> and normal</p>'
+    },
+    {
+        input: '!{#ff0000}(Hex color)',
+        expected: '<p class="jt-yxtus"><span class="jt-yxtus" style="color:#ff0000!important">Hex color</span></p>'
+    },
+    {
+        input: '!{#4caf50}(/Hola/ *mundo*) mundial.',
+        expected: '<p class="jt-yxtus"><span class="jt-yxtus" style="color:#4caf50!important"><em class="jt-yxtus">Hola</em> <strong class="jt-yxtus">mundo</strong></span> mundial.</p>'
+    },
+    {
+        input: '| Header | !{red}(Red) |\n| --- | --- |\n| Cell | Normal |',
+        expected: '\n<table class="jt-yxtus"><thead><tr><th>Header</th><th><span class="jt-yxtus" style="color:red!important">Red</span></th></tr></thead><tbody><tr><td>Cell</td><td>Normal</td></tr></tbody></table>'
+    },
+    {
+        input: '[!{blue}(Blue link)](http://example.com)',
+        expected: '<a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>'
     }
 ];
 

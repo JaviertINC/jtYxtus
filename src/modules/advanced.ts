@@ -34,6 +34,11 @@ const insertPlaceholders = (text: string): string => {
         return `${startPlaceholder('BUTTON', `${options}|${url}`)}${buttonText}${endPlaceholder('BUTTON')}`;
     });
 
+    // Colors
+    text = text.replace(/!\{([^}]+)\}\(([^)]+)\)/g, (match, color, content) => {
+        return `${startPlaceholder('COLOR', color)}${content}${endPlaceholder('COLOR')}`;
+    });
+
     return text;
 };
 
@@ -60,6 +65,11 @@ const replacePlaceholders = (text: string): string => {
             downloadAttr = ` download${filename}`;
         }
         return `<a href="${url}"${downloadAttr} class="jt-yxtus jt-yxtus-button">${escapeHtml(content)}</a>`;
+    });
+
+    // Color
+    text = text.replace(/§§§COLOR\{([^}]+)\}:S§§§(.*?)§§§COLOR:E§§§/g, (match, color, content) => {
+        return `<span class="jt-yxtus" style="color:${color}!important">${content}</span>`;
     });
 
     return text;

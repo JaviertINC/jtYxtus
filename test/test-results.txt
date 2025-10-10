@@ -270,3 +270,43 @@ Expected: <p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>
 Got: <p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>
 Pass: YES
 ---
+Test 38:
+Input: !{red}(This is red)
+Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">This is red</span></p>
+Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:red!important">This is red</span></p>
+Pass: YES
+---
+Test 39:
+Input: !{blue}(Blue text) and normal
+Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:blue!important">Blue text</span> and normal</p>
+Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:blue!important">Blue text</span> and normal</p>
+Pass: YES
+---
+Test 40:
+Input: !{#ff0000}(Hex color)
+Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#ff0000!important">Hex color</span></p>
+Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#ff0000!important">Hex color</span></p>
+Pass: YES
+---
+Test 41:
+Input: !{#4caf50}(/Hola/ *mundo*) mundial.
+Expected: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#4caf50!important"><em class="jt-yxtus">Hola</em> <strong class="jt-yxtus">mundo</strong></span> mundial.</p>
+Got: <p class="jt-yxtus"><span class="jt-yxtus" style="color:#4caf50!important"><em class="jt-yxtus">Hola</em> <strong class="jt-yxtus">mundo</strong></span> mundial.</p>
+Pass: YES
+---
+Test 42:
+Input: | Header | !{red}(Red) |
+| --- | --- |
+| Cell | Normal |
+Expected: 
+<table class="jt-yxtus"><thead><tr><th>Header</th><th><span class="jt-yxtus" style="color:red!important">Red</span></th></tr></thead><tbody><tr><td>Cell</td><td>Normal</td></tr></tbody></table>
+Got: 
+<table class="jt-yxtus"><thead><tr><th>Header</th><th><span class="jt-yxtus" style="color:red!important">Red</span></th></tr></thead><tbody><tr><td>Cell</td><td>Normal</td></tr></tbody></table>
+Pass: YES
+---
+Test 43:
+Input: [!{blue}(Blue link)](http://example.com)
+Expected: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>
+Got: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>
+Pass: YES
+---

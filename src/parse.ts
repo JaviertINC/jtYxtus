@@ -34,10 +34,10 @@ const parse = (text: string): string => {
 
     // Paso 5: Reemplazar placeholders por HTML
     protectedText = media.replacePlaceholders(protectedText);
-    protectedText = advanced.replacePlaceholders(protectedText);
     protectedText = icons.replacePlaceholders(protectedText);
     protectedText = code.replacePlaceholders(protectedText);
     protectedText = table.replacePlaceholders(protectedText);
+    protectedText = advanced.replacePlaceholders(protectedText);
     protectedText = basic.replacePlaceholders(protectedText);
     protectedText = list.replacePlaceholders(protectedText);
     protectedText = decorators.replacePlaceholders(protectedText);

@@ -81,6 +81,7 @@ document.body.innerHTML = output;
 | [Unordered lists](https://github.com/JaviertINC/jtYxtus/wiki/Lists) | Implementado | `- Item` |
 | [Task lists](https://github.com/JaviertINC/jtYxtus/wiki/Lists) | Implementado | `- [ ] Item` |
 | [Abbreviations](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `{HTML}\n*[HTML]: Hyper Text Markup Language` |
+| [Colors](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `!{color}(texto)` |
 | [Highlight](https://github.com/JaviertINC/jtYxtus/wiki/Decorators) | Implementado | `==texto==` |
 | [Icons](https://github.com/JaviertINC/jtYxtus/wiki/Icons-emojis) | Implementado | `;heart;` |
 | Footnotes | Planificado | `Texto[^1]` |
