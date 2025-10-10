@@ -1,7 +1,9 @@
 import { escapeHtml, startPlaceholder, endPlaceholder } from "../commons.ts";
-import basic from "./basic.ts";
 
 const insertPlaceholders = (text: string): string => {
+    // Highlight
+    text = text.replace(/==([^=]+)==/g, `${startPlaceholder('MARK')}$1${endPlaceholder('MARK')}`);
+
     const lines = text.split('\n');
     const processedLines: string[] = [];
     let i = 0;
@@ -100,6 +102,9 @@ const parseBlockquote = (lines: string[], startIndex: number): { blockquoteHtml:
 
 const replacePlaceholders = (text: string): string => {
     text = text.replace(/§§§HR\{([^}]+)\}:S§§§/g, (match, type) => `<hr class="jt-yxtus ${type}">`);
+
+    // Mark
+    text = text.replace(/§§§MARK:S§§§([^§]+)§§§MARK:E§§§/g, (match, content) => `<mark class="jt-yxtus">${escapeHtml(content)}</mark>`);
 
     // Blockquotes
     text = text.replace(/§§§BLOCKQUOTE\{([^|}]+)\|([^}]+)\}:S§§§([\s\S]*?)§§§BLOCKQUOTE:E§§§/g, (match: string, type: string, title: string, content: string) => {

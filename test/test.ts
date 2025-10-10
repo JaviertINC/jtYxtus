@@ -137,6 +137,10 @@ const tests = [
     {
         input: '*Bold* text and {ABBR}.\n\n*[ABBR]: Abbreviation',
         expected: '<p class="jt-yxtus"><strong class="jt-yxtus">Bold</strong> text and <abbr title="Abbreviation" class="jt-yxtus">ABBR</abbr>.</p>'
+    },
+    {
+        input: 'Texto ==resaltado==.',
+        expected: '<p class="jt-yxtus">Texto <mark class="jt-yxtus">resaltado</mark>.</p>'
     }
 ];
 

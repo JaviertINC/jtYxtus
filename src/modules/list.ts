@@ -1,4 +1,4 @@
-import { escapeHtml, startPlaceholder, endPlaceholder } from "../commons.ts";
+import { startPlaceholder, endPlaceholder } from "../commons.ts";
 
 const insertPlaceholders = (text: string): string => {
     const lines = text.split('\n');
