@@ -83,4 +83,4 @@ document.body.innerHTML = output;
 | [Abbreviations](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `{HTML}\n*[HTML]: Hyper Text Markup Language` |
 | Footnotes | Planificado | `Texto[^1]` |
 | Definition lists | Planificado | `Término\n: Definición` |
-| Captys embed | Planificado | `[captys{512x512}](URL o ID)
+| Captys embed | Planificado | `[captys{512x512}](URL o ID)` |
