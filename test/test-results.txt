@@ -252,3 +252,21 @@ Expected: <p class="jt-yxtus">Texto <mark class="jt-yxtus">resaltado</mark>.</p>
 Got: <p class="jt-yxtus">Texto <mark class="jt-yxtus">resaltado</mark>.</p>
 Pass: YES
 ---
+Test 35:
+Input: Love this ;heart;.
+Expected: <p class="jt-yxtus">Love this <i class="jt-yxtus ico-heart"></i>.</p>
+Got: <p class="jt-yxtus">Love this <i class="jt-yxtus ico-heart"></i>.</p>
+Pass: YES
+---
+Test 36:
+Input: Great job ;check;.
+Expected: <p class="jt-yxtus">Great job <i class="jt-yxtus ico-check"></i>.</p>
+Got: <p class="jt-yxtus">Great job <i class="jt-yxtus ico-check"></i>.</p>
+Pass: YES
+---
+Test 37:
+Input: Unknown ;unknown;.
+Expected: <p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>
+Got: <p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>
+Pass: YES
+---

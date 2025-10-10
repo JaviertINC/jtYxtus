@@ -82,6 +82,6 @@ document.body.innerHTML = output;
 | [Task lists](https://github.com/JaviertINC/jtYxtus/wiki/Lists) | Implementado | `- [ ] Item` |
 | [Abbreviations](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `{HTML}\n*[HTML]: Hyper Text Markup Language` |
 | [Highlight](https://github.com/JaviertINC/jtYxtus/wiki/Decorators) | Implementado | `==texto==` |
+| [Icons](https://github.com/JaviertINC/jtYxtus/wiki/Icons-emojis) | Implementado | `;heart;` |
 | Footnotes | Planificado | `Texto[^1]` |
-| Definition lists | Planificado | `Término\n: Definición` |
 | Captys embed | Planificado | `[captys{512x512}](URL o ID)` |

@@ -141,6 +141,18 @@ const tests = [
     {
         input: 'Texto ==resaltado==.',
         expected: '<p class="jt-yxtus">Texto <mark class="jt-yxtus">resaltado</mark>.</p>'
+    },
+    {
+        input: 'Love this ;heart;.',
+        expected: '<p class="jt-yxtus">Love this <i class="jt-yxtus ico-heart"></i>.</p>'
+    },
+    {
+        input: 'Great job ;check;.',
+        expected: '<p class="jt-yxtus">Great job <i class="jt-yxtus ico-check"></i>.</p>'
+    },
+    {
+        input: 'Unknown ;unknown;.',
+        expected: '<p class="jt-yxtus">Unknown <i class="jt-yxtus ico-unknown"></i>.</p>'
     }
 ];
 
