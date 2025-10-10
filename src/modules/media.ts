@@ -61,7 +61,7 @@ const replacePlaceholders = (text: string): string => {
         const allow = ['accelerometer', 'clipboard-write', 'encrypted-media', 'gyroscope', 'picture-in-picture', 'web-share'];
         if (autoplay === '1') allow.push('autoplay');
         const allowStr = allow.join('; ');
-        return `<iframe width="${width}" height="${height}" src="https://www.youtube.com/embed/${id}" title="YouTube Embed from jtYxtus" frameborder="0" allow="${allowStr}" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen${mute === '1' ? ' muted' : ''} class="jt-yxtus jt-yxtus-youtube"></iframe>`;
+        return `<iframe width="${width}" height="${height}" src="https://www.youtube.com/embed/${id}" title="YouTube Embed from jtYxtus" frameborder="0" allow="${allowStr}" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen${mute === '1' ? ' muted' : ''} class="jt-yxtus jt-yxtus-yt"></iframe>`;
     });
 
     return text;

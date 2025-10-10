@@ -29,7 +29,15 @@ const insertPlaceholders = (text: string): string => {
     text = text.replace(/  $/gm, startPlaceholder('BR'));
 
     const lines = text.split('\n');
+    let insideBlockquote = false;
     const processedLines = lines.map(line => {
+        if (line.includes('§§§BLOCKQUOTE') && line.includes(':S§§§')) insideBlockquote = true;
+        if (line.includes('§§§BLOCKQUOTE:E§§§')) insideBlockquote = false;
+
+        if (insideBlockquote && !line.startsWith('§§§')) {
+            return line;
+        }
+
         if (line.trim() === '' || line.startsWith('§§§H') || line.startsWith('§§§CODE-BLOCK') || line.startsWith('§§§IMG') || line.startsWith('§§§VIDEO') || line.startsWith('§§§AUDIO') || line.startsWith('§§§YOUTUBE') || line.startsWith('§§§IFRAME') || line.startsWith('§§§BUTTON') || line.startsWith('§§§TABLE') || line.startsWith('§§§BLOCKQUOTE') || line.startsWith('§§§HR') || line.startsWith('§§§OL') || line.startsWith('§§§UL') || line.startsWith('§§§LI') || line.startsWith('§§§TASK-UL') || line.startsWith('§§§TASK-LI') || line.startsWith('>')) {
             return line;
         }

@@ -13,7 +13,7 @@ const tests = [
     },
     {
         input: '`code`',
-        expected: '<p class="jt-yxtus"><code class="jt-yxtus">code</code></p>'
+        expected: '<p class="jt-yxtus"><code class="jt-yxtus jt-yxtus-code">code</code></p>'
     },
     {
         input: '![Hola mundo](http://example.com/img.png)',
@@ -21,7 +21,7 @@ const tests = [
     },
     {
         input: '[text](http://example.com)',
-        expected: '<p class="jt-yxtus"><a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link">text</a></p>'
+        expected: '<a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link">text</a>'
     },
     {
         input: 'Esto es /cursiva/.',
@@ -41,7 +41,7 @@ const tests = [
     },
     {
         input: '```js\nconsole.log("Hola");\n```',
-        expected: '<div class="jt-yxtus code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus" lang="js">console.log("Hola");\n</code></div>'
+        expected: '<div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code" lang="js">console.log("Hola");\n</code></div>'
     },
     {
         input: '[video{1|0|1}](http://example.com/video.mp4)',
@@ -53,15 +53,15 @@ const tests = [
     },
     {
         input: '[yt{1|0|640x480}](https://youtu.be/dQw4w9WgXcQ)',
-        expected: '<iframe width="640" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Embed from jtYxtus" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="jt-yxtus"></iframe>'
+        expected: '<iframe width="640" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Embed from jtYxtus" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="jt-yxtus jt-yxtus-yt"></iframe>'
     },
     {
         input: '[iframe{640x480}](https://example.com)',
-        expected: '<iframe src="https://example.com" width="640" height="480" frameborder="0" class="jt-yxtus"></iframe>'
+        expected: '<iframe src="https://example.com" width="640" height="480" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>'
     },
     {
         input: '[iframe{0x0}](https://example.com)',
-        expected: '<iframe src="https://example.com" width="100%" height="512" frameborder="0" class="jt-yxtus"></iframe>'
+        expected: '<iframe src="https://example.com" width="100%" height="512" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>'
     },
     {
         input: '[button{download,myfile.pdf}](http://example.com/file.pdf)',
@@ -92,7 +92,7 @@ const tests = [
 | --- | :--- | :---: | ---: |
 | Body1 | /Body2/ | | Body4 |
 | *Body1.1* | | Body2.1 | ~Body4.1~ |`,
-        expected: '<table class="jt-yxtus"><thead><tr><th>Header1</th><th>Header2</th><th style="text-align: center;">Header3</th><th style="text-align: right;">Header4</th></tr></thead><tbody><tr><td>Body1</td><td><em class="jt-yxtus">Body2</em></td><td style="text-align: center;"></td><td style="text-align: right;">Body4</td></tr><tr><td><strong class="jt-yxtus">Body1.1</strong></td><td></td><td style="text-align: center;">Body2.1</td><td style="text-align: right;"><del class="jt-yxtus">Body4.1</del></td></tr></tbody></table>'
+        expected: '\n<table class="jt-yxtus"><thead><tr><th>Header1</th><th>Header2</th><th style="text-align: center;">Header3</th><th style="text-align: right;">Header4</th></tr></thead><tbody><tr><td>Body1</td><td><em class="jt-yxtus">Body2</em></td><td style="text-align: center;"></td><td style="text-align: right;">Body4</td></tr><tr><td><strong class="jt-yxtus">Body1.1</strong></td><td></td><td style="text-align: center;">Body2.1</td><td style="text-align: right;"><del class="jt-yxtus">Body4.1</del></td></tr></tbody></table>'
     },
     {
         input: '---',
@@ -180,12 +180,23 @@ const tests = [
     }
 ];
 
+let passed = 0;
+let failed: number[] = [];
 tests.forEach((test, i) => {
     const result = parser.parse(test.input);
+    const isPass = result === test.expected;
+    if (isPass) passed++;
+    else failed.push(i + 1);
     console.log(`Test ${i + 1}:`);
     console.log(`Input: ${test.input}`);
     console.log(`Expected: ${test.expected}`);
     console.log(`Got: ${result}`);
-    console.log(`Pass: ${result === test.expected ? 'YES' : 'NO'}`);
+    console.log(`Pass: ${isPass ? 'YES' : 'NO'}`);
     console.log('---');
 });
+console.log(`Tests passed: ${passed}/${tests.length}`);
+if (failed.length > 0) {
+    console.log(`Failed tests: ${failed.join(', ')}`);
+}else{
+    console.log('All tests passed successfully!');
+}

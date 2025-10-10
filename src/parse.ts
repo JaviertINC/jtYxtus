@@ -25,12 +25,12 @@ const parse = (text: string): string => {
         return `§§§URL_${urls.length - 1}§§§`;
     });
 
-    // Paso 4: Procesar code, table, list, basic y decorators placeholders
+    // Paso 4: Procesar code, table, list, decorators y basic placeholders
     protectedText = code.insertPlaceholders(protectedText);
     protectedText = table.insertPlaceholders(protectedText);
     protectedText = list.insertPlaceholders(protectedText);
-    protectedText = basic.insertPlaceholders(protectedText);
     protectedText = decorators.insertPlaceholders(protectedText);
+    protectedText = basic.insertPlaceholders(protectedText);
 
     // Paso 5: Reemplazar placeholders por HTML
     protectedText = media.replacePlaceholders(protectedText);

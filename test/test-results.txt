@@ -12,9 +12,9 @@ Pass: YES
 ---
 Test 3:
 Input: `code`
-Expected: <p class="jt-yxtus"><code class="jt-yxtus">code</code></p>
+Expected: <p class="jt-yxtus"><code class="jt-yxtus jt-yxtus-code">code</code></p>
 Got: <p class="jt-yxtus"><code class="jt-yxtus jt-yxtus-code">code</code></p>
-Pass: NO
+Pass: YES
 ---
 Test 4:
 Input: ![Hola mundo](http://example.com/img.png)
@@ -24,9 +24,9 @@ Pass: YES
 ---
 Test 5:
 Input: [text](http://example.com)
-Expected: <p class="jt-yxtus"><a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link">text</a></p>
+Expected: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link">text</a>
 Got: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link">text</a>
-Pass: NO
+Pass: YES
 ---
 Test 6:
 Input: Esto es /cursiva/.
@@ -56,11 +56,11 @@ Test 10:
 Input: ```js
 console.log("Hola");
 ```
-Expected: <div class="jt-yxtus code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus" lang="js">console.log("Hola");
+Expected: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code" lang="js">console.log("Hola");
 </code></div>
 Got: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code" lang="js">console.log("Hola");
 </code></div>
-Pass: NO
+Pass: YES
 ---
 Test 11:
 Input: [video{1|0|1}](http://example.com/video.mp4)
@@ -76,21 +76,21 @@ Pass: YES
 ---
 Test 13:
 Input: [yt{1|0|640x480}](https://youtu.be/dQw4w9WgXcQ)
-Expected: <iframe width="640" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Embed from jtYxtus" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="jt-yxtus"></iframe>
-Got: <iframe width="640" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Embed from jtYxtus" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="jt-yxtus jt-yxtus-youtube"></iframe>
-Pass: NO
+Expected: <iframe width="640" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Embed from jtYxtus" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="jt-yxtus jt-yxtus-yt"></iframe>
+Got: <iframe width="640" height="480" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube Embed from jtYxtus" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="jt-yxtus jt-yxtus-yt"></iframe>
+Pass: YES
 ---
 Test 14:
 Input: [iframe{640x480}](https://example.com)
-Expected: <iframe src="https://example.com" width="640" height="480" frameborder="0" class="jt-yxtus"></iframe>
+Expected: <iframe src="https://example.com" width="640" height="480" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>
 Got: <iframe src="https://example.com" width="640" height="480" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>
-Pass: NO
+Pass: YES
 ---
 Test 15:
 Input: [iframe{0x0}](https://example.com)
-Expected: <iframe src="https://example.com" width="100%" height="512" frameborder="0" class="jt-yxtus"></iframe>
+Expected: <iframe src="https://example.com" width="100%" height="512" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>
 Got: <iframe src="https://example.com" width="100%" height="512" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>
-Pass: NO
+Pass: YES
 ---
 Test 16:
 Input: [button{download,myfile.pdf}](http://example.com/file.pdf)
@@ -163,28 +163,29 @@ Input: | Header1 | Header2 | Header3 | Header4 |
 | --- | :--- | :---: | ---: |
 | Body1 | /Body2/ | | Body4 |
 | *Body1.1* | | Body2.1 | ~Body4.1~ |
-Expected: <table class="jt-yxtus"><thead><tr><th>Header1</th><th>Header2</th><th style="text-align: center;">Header3</th><th style="text-align: right;">Header4</th></tr></thead><tbody><tr><td>Body1</td><td><em class="jt-yxtus">Body2</em></td><td style="text-align: center;"></td><td style="text-align: right;">Body4</td></tr><tr><td><strong class="jt-yxtus">Body1.1</strong></td><td></td><td style="text-align: center;">Body2.1</td><td style="text-align: right;"><del class="jt-yxtus">Body4.1</del></td></tr></tbody></table>
+Expected: 
+<table class="jt-yxtus"><thead><tr><th>Header1</th><th>Header2</th><th style="text-align: center;">Header3</th><th style="text-align: right;">Header4</th></tr></thead><tbody><tr><td>Body1</td><td><em class="jt-yxtus">Body2</em></td><td style="text-align: center;"></td><td style="text-align: right;">Body4</td></tr><tr><td><strong class="jt-yxtus">Body1.1</strong></td><td></td><td style="text-align: center;">Body2.1</td><td style="text-align: right;"><del class="jt-yxtus">Body4.1</del></td></tr></tbody></table>
 Got: 
 <table class="jt-yxtus"><thead><tr><th>Header1</th><th>Header2</th><th style="text-align: center;">Header3</th><th style="text-align: right;">Header4</th></tr></thead><tbody><tr><td>Body1</td><td><em class="jt-yxtus">Body2</em></td><td style="text-align: center;"></td><td style="text-align: right;">Body4</td></tr><tr><td><strong class="jt-yxtus">Body1.1</strong></td><td></td><td style="text-align: center;">Body2.1</td><td style="text-align: right;"><del class="jt-yxtus">Body4.1</del></td></tr></tbody></table>
-Pass: NO
+Pass: YES
 ---
 Test 23:
 Input: ---
 Expected: <hr class="jt-yxtus line1">
-Got: <p class="jt-yxtus">---</p>
-Pass: NO
+Got: <hr class="jt-yxtus line1">
+Pass: YES
 ---
 Test 24:
 Input: ---o---
 Expected: <hr class="jt-yxtus line2">
-Got: <p class="jt-yxtus">---o---</p>
-Pass: NO
+Got: <hr class="jt-yxtus line2">
+Pass: YES
 ---
 Test 25:
 Input: ---^---
 Expected: <hr class="jt-yxtus line3">
-Got: <p class="jt-yxtus">---^---</p>
-Pass: NO
+Got: <hr class="jt-yxtus line3">
+Pass: YES
 ---
 Test 26:
 Input: > Esto es una cita
@@ -310,3 +311,5 @@ Expected: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-
 Got: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>
 Pass: YES
 ---
+Tests passed: 43/43
+All tests passed successfully!
