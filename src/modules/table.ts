@@ -1,4 +1,4 @@
-import { startPlaceholder, endPlaceholder } from "../commons.js";
+import { startPlaceholder, endPlaceholder } from "../commons.ts";
 
 interface TableData {
     header: string[];
@@ -31,7 +31,6 @@ const insertPlaceholders = (text: string): string => {
     let i = 0;
     while (i < lines.length) {
         if (lines[i].trim().match(/^\|.*\|$/)) {
-            // potential table start
             const tableLines = [];
             while (i < lines.length && lines[i].trim().match(/^\|.*\|$/)) {
                 tableLines.push(lines[i]);
@@ -63,7 +62,7 @@ const insertPlaceholders = (text: string): string => {
             i++;
         }
     }
-    return result.replace(/\n+$/, ''); // remove trailing newlines
+    return result.replace(/\n+$/, '');
 };
 
 const replacePlaceholders = (text: string): string => {

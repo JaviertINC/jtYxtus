@@ -13,10 +13,10 @@ export const escapeHtml = (str: string): string => {
 export const kebabCase = (str: string): string => {
     return str
         .toLowerCase()
-        .normalize('NFD') // decompose accents
-        .replace(/[\u0300-\u036f]/g, '') // remove accents
-        .replace(/[^a-z0-9\s]/g, '') // remove special chars except spaces
-        .replace(/\s+/g, '-') // spaces to -
-        .replace(/^-+|-+$/g, '') // trim -
-        .replace(/-+/g, '-'); // collapse multiple -
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .replace(/-+/g, '-');
 };

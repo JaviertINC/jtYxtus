@@ -1,4 +1,4 @@
-import { startPlaceholder, endPlaceholder } from "../commons.js";
+import { startPlaceholder, endPlaceholder } from "../commons.ts";
 
 const insertPlaceholders = (text: string): string => {
     // Code blocks

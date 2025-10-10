@@ -1,6 +1,4 @@
-// Simple tests for jtYxtus
-
-import jtYxtus from "../src/index.js";
+import jtYxtus from "../src/index.ts";
 
 const parser = new jtYxtus();
 

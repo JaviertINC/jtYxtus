@@ -1,10 +1,10 @@
-import advanced from "./modules/advanced.js";
-import basic from "./modules/basic.js";
-import code from "./modules/code.js";
-import decorators from "./modules/decorators.js";
-import list from "./modules/list.js";
-import media from "./modules/media.js";
-import table from "./modules/table.js";
+import advanced from "./modules/advanced.ts";
+import basic from "./modules/basic.ts";
+import code from "./modules/code.ts";
+import decorators from "./modules/decorators.ts";
+import list from "./modules/list.ts";
+import media from "./modules/media.ts";
+import table from "./modules/table.ts";
 
 const parse = (text: string): string => {
     // Paso 1: Procesar media placeholders (necesita URLs reales para extraer IDs)
@@ -21,14 +21,14 @@ const parse = (text: string): string => {
         return `§§§URL_${urls.length - 1}§§§`;
     });
 
-    // Paso 3: Procesar code, table, list, basic y decorators placeholders
+    // Paso 4: Procesar code, table, list, basic y decorators placeholders
     protectedText = code.insertPlaceholders(protectedText);
     protectedText = table.insertPlaceholders(protectedText);
     protectedText = list.insertPlaceholders(protectedText);
     protectedText = basic.insertPlaceholders(protectedText);
     protectedText = decorators.insertPlaceholders(protectedText);
 
-    // Paso 4: Reemplazar placeholders por HTML
+    // Paso 5: Reemplazar placeholders por HTML
     protectedText = media.replacePlaceholders(protectedText);
     protectedText = advanced.replacePlaceholders(protectedText);
     protectedText = code.replacePlaceholders(protectedText);
@@ -37,7 +37,7 @@ const parse = (text: string): string => {
     protectedText = list.replacePlaceholders(protectedText);
     protectedText = decorators.replacePlaceholders(protectedText);
 
-    // Paso 5: Restaurar URLs
+    // Paso 6: Restaurar URLs
     urls.forEach((url, index) => {
         protectedText = protectedText.replace(`§§§URL_${index}§§§`, url);
     });

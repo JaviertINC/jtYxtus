@@ -1,4 +1,4 @@
-import { escapeHtml, kebabCase, startPlaceholder, endPlaceholder } from "../commons.js";
+import { escapeHtml, kebabCase, startPlaceholder, endPlaceholder } from "../commons.ts";
 
 const insertPlaceholders = (text: string): string => {
     // Remove comments
@@ -28,7 +28,6 @@ const insertPlaceholders = (text: string): string => {
     // Line breaks
     text = text.replace(/  $/gm, startPlaceholder('BR'));
 
-    // Paragraphs: wrap lines not starting with block elements
     const lines = text.split('\n');
     const processedLines = lines.map(line => {
         if (line.trim() === '' || line.startsWith('§§§H') || line.startsWith('§§§CODE-BLOCK') || line.startsWith('§§§IMG') || line.startsWith('§§§VIDEO') || line.startsWith('§§§AUDIO') || line.startsWith('§§§YOUTUBE') || line.startsWith('§§§IFRAME') || line.startsWith('§§§BUTTON') || line.startsWith('§§§TABLE') || line.startsWith('§§§BLOCKQUOTE') || line.startsWith('§§§HR') || line.startsWith('§§§OL') || line.startsWith('§§§UL') || line.startsWith('§§§LI') || line.startsWith('§§§TASK-UL') || line.startsWith('§§§TASK-LI') || line.startsWith('>')) {

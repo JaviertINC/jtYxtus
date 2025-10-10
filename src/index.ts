@@ -1,13 +1,5 @@
-import parse from "./parse.js";
-
-interface Config {
-    // Future options
-}
+import parse from "./parse.ts";
 
 export default class jtYxtus {
-    constructor(config?: Config) {
-        // Initialize with config if needed
-    }
-
     public parse = parse;
 }

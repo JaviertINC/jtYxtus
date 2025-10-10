@@ -1,4 +1,4 @@
-import { escapeHtml, startPlaceholder, endPlaceholder } from "../commons.js";
+import { escapeHtml, startPlaceholder, endPlaceholder } from "../commons.ts";
 
 const insertPlaceholders = (text: string): string => {
     const lines = text.split('\n');
@@ -11,17 +11,13 @@ const insertPlaceholders = (text: string): string => {
         const line = lines[i];
         const trimmed = line.trim();
 
-        // Check for ordered list item (1. 2. 3. etc.)
         const orderedMatch = trimmed.match(/^(\d+)\.\s+(.+)$/);
-        // Check for task list item (- [ ] or - [x])
         const taskMatch = trimmed.match(/^-\s+\[([ x])\]\s+(.+)$/);
-        // Check for unordered list item (- ) - but not task items
         const unorderedMatch = trimmed.match(/^-\s+(.+)$/);
 
         if (orderedMatch) {
             const content = orderedMatch[2];
             if (!inOrderedList) {
-                // Start of ordered list
                 processedLines.push(startPlaceholder('OL'));
                 inOrderedList = true;
                 inUnorderedList = false;
@@ -32,7 +28,6 @@ const insertPlaceholders = (text: string): string => {
             const checked = taskMatch[1] === 'x' ? 'checked' : 'unchecked';
             const content = taskMatch[2];
             if (!inTaskList) {
-                // Start of task list
                 processedLines.push(startPlaceholder('TASK-UL'));
                 inTaskList = true;
                 inOrderedList = false;
@@ -42,7 +37,6 @@ const insertPlaceholders = (text: string): string => {
         } else if (unorderedMatch) {
             const content = unorderedMatch[1];
             if (!inUnorderedList) {
-                // Start of unordered list
                 processedLines.push(startPlaceholder('UL'));
                 inUnorderedList = true;
                 inOrderedList = false;
@@ -50,7 +44,6 @@ const insertPlaceholders = (text: string): string => {
             }
             processedLines.push(`${startPlaceholder('LI')}${content}${endPlaceholder('LI')}`);
         } else {
-            // End of any list if we were in one
             if (inOrderedList) {
                 processedLines.push(endPlaceholder('OL'));
                 inOrderedList = false;
@@ -67,7 +60,6 @@ const insertPlaceholders = (text: string): string => {
         }
     }
 
-    // Close any open lists at the end
     if (inOrderedList) {
         processedLines.push(endPlaceholder('OL'));
     }

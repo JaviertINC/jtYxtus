@@ -4,7 +4,6 @@ const startPlaceholder = (element: string, params?: string): string => `§§§${
 const endPlaceholder = (element: string): string => `§§§${element}:E§§§`;
 
 const insertPlaceholders = (text: string): string => {
-    // Collect abbreviation definitions
     const abbrMap: { [key: string]: string } = {};
     const lines = text.split('\n');
     const filteredLines: string[] = [];
@@ -18,7 +17,6 @@ const insertPlaceholders = (text: string): string => {
     }
     text = filteredLines.join('\n');
 
-    // Replace abbreviation usages
     for (const abbr in abbrMap) {
         const regex = new RegExp(`\\{(${abbr})\\}`, 'g');
         text = text.replace(regex, (match, abbrText) => {
