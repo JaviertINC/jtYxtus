@@ -30,8 +30,8 @@ const insertPlaceholders = (text: string): string => {
     });
 
     // Button
-    text = text.replace(/\[([^\{]+)\{([^}]+)\}\]\(([^)]+)\)/g, (match, buttonText, options, url) => {
-        return `${startPlaceholder('BUTTON', `${options}|${url}`)}${buttonText}${endPlaceholder('BUTTON')}`;
+    text = text.replace(/\[button\{([^,]+),([^\}]+)\}([^\]]+)\]\(([^)]+)\)/g, (match, action, fileName, buttonText, url) => {
+        return `${startPlaceholder('BUTTON', `${action},${fileName}|${url}`)}${buttonText}${endPlaceholder('BUTTON')}`;
     });
 
     // Colors
@@ -57,12 +57,10 @@ const replacePlaceholders = (text: string): string => {
     });
 
     // Button
-    text = text.replace(/§§§BUTTON\{([^|]+)\|([^}]+)\}:S§§§([^§]+)§§§BUTTON:E§§§/g, (match, options, url, content) => {
-        const opts = options.split(',');
+    text = text.replace(/§§§BUTTON\{([^,]+),([^\|]+)\|([^}]+)\}:S§§§([^§]+)§§§BUTTON:E§§§/g, (match, action, fileName, url, content) => {
         let downloadAttr = '';
-        if (opts.includes('download')) {
-            const filename = opts[1] ? `="${opts[1]}"` : '';
-            downloadAttr = ` download${filename}`;
+        if (action === 'download') {
+            downloadAttr = ` download="${fileName}"`;
         }
         return `<a href="${url}"${downloadAttr} class="jt-yxtus jt-yxtus-button">${escapeHtml(content)}</a>`;
     });

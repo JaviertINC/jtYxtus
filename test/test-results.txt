@@ -93,15 +93,15 @@ Got: <iframe src="https://example.com" width="100%" height="512" frameborder="0"
 Pass: YES
 ---
 Test 16:
-Input: [button{download,myfile.pdf}](http://example.com/file.pdf)
-Expected: <a href="http://example.com/file.pdf" download="myfile.pdf" class="jt-yxtus jt-yxtus-button">button</a>
-Got: <a href="http://example.com/file.pdf" download="myfile.pdf" class="jt-yxtus jt-yxtus-button">button</a>
+Input: [button{download,myfile.pdf}Descargar Archivo](http://example.com/file.pdf)
+Expected: <a href="http://example.com/file.pdf" download="myfile.pdf" class="jt-yxtus jt-yxtus-button">Descargar Archivo</a>
+Got: <a href="http://example.com/file.pdf" download="myfile.pdf" class="jt-yxtus jt-yxtus-button">Descargar Archivo</a>
 Pass: YES
 ---
 Test 17:
-Input: [button{download}](http://example.com/file.pdf)
-Expected: <a href="http://example.com/file.pdf" download class="jt-yxtus jt-yxtus-button">button</a>
-Got: <a href="http://example.com/file.pdf" download class="jt-yxtus jt-yxtus-button">button</a>
+Input: [button{download,file.pdf}Descargar](http://example.com/document)
+Expected: <a href="http://example.com/document" download="file.pdf" class="jt-yxtus jt-yxtus-button">Descargar</a>
+Got: <a href="http://example.com/document" download="file.pdf" class="jt-yxtus jt-yxtus-button">Descargar</a>
 Pass: YES
 ---
 Test 18:

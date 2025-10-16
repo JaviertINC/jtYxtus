@@ -64,12 +64,12 @@ const tests = [
         expected: '<iframe src="https://example.com" width="100%" height="512" frameborder="0" class="jt-yxtus jt-yxtus-iframe"></iframe>'
     },
     {
-        input: '[button{download,myfile.pdf}](http://example.com/file.pdf)',
-        expected: '<a href="http://example.com/file.pdf" download="myfile.pdf" class="jt-yxtus jt-yxtus-button">button</a>'
+        input: '[button{download,myfile.pdf}Descargar Archivo](http://example.com/file.pdf)',
+        expected: '<a href="http://example.com/file.pdf" download="myfile.pdf" class="jt-yxtus jt-yxtus-button">Descargar Archivo</a>'
     },
     {
-        input: '[button{download}](http://example.com/file.pdf)',
-        expected: '<a href="http://example.com/file.pdf" download class="jt-yxtus jt-yxtus-button">button</a>'
+        input: '[button{download,file.pdf}Descargar](http://example.com/document)',
+        expected: '<a href="http://example.com/document" download="file.pdf" class="jt-yxtus jt-yxtus-button">Descargar</a>'
     },
     {
         input: '1. texto\n2. *texto*\n3. /texto/',

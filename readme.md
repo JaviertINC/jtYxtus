@@ -72,7 +72,7 @@ document.body.innerHTML = output;
 | [Code blocks](https://github.com/JaviertINC/jtYxtus/wiki/Code) | Implementado | ```` ```código``` ```` |
 | [Tables](https://github.com/JaviertINC/jtYxtus/wiki/Tables) | Implementado | `\| Header \| \| --- \| \| Body \|` |
 | [Iframes](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `[iframe{640x480}](url)` |
-| [Buttons](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `[texto{opciones}](url)` |
+| [Buttons](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `[button{download,file.pdf}Text](url)` |
 | [Horizontal lines](https://github.com/JaviertINC/jtYxtus/wiki/Decorators) | Implementado | `---` |
 | [Blockquotes](https://github.com/JaviertINC/jtYxtus/wiki/Decorators) | Implementado | `> Texto` |
 | [Special blockquotes](https://github.com/JaviertINC/jtYxtus/wiki/Decorators) | Implementado | `> [!NOTE@Título]\n> Texto` |
