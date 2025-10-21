@@ -213,6 +213,18 @@ const tests = [
     {
         input: '--* Texto _subrayado_ a la derecha',
         expected: '<p class="jt-yxtus" style="text-align: right;">Texto <u class="jt-yxtus">subrayado</u> a la derecha</p>'
+    },
+    {
+        input: '````\nconsole.log("Hola mundo");\n````',
+        expected: '<div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code">console.log("Hola mundo");\n</code></div>'
+    },
+    {
+        input: '````javascript\nconsole.log("Hola mundo");\n````',
+        expected: '<div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code" lang="javascript">console.log("Hola mundo");\n</code></div>'
+    },
+    {
+        input: '````\n```\nconsole.log("nested");\n```\n````',
+        expected: '<div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code">```\nconsole.log("nested");\n```\n</code></div>'
     }
 ];
 

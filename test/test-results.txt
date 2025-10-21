@@ -366,5 +366,41 @@ Expected: <p class="jt-yxtus" style="text-align: right;">Texto <u class="jt-yxtu
 Got: <p class="jt-yxtus" style="text-align: right;">Texto <u class="jt-yxtus">subrayado</u> a la derecha</p>
 Pass: YES
 ---
-Tests passed: 52/52
+Test 53:
+Input: ````
+console.log("Hola mundo");
+````
+Expected: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code">console.log("Hola mundo");
+</code></div>
+Got: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code">console.log("Hola mundo");
+</code></div>
+Pass: YES
+---
+Test 54:
+Input: ````javascript
+console.log("Hola mundo");
+````
+Expected: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code" lang="javascript">console.log("Hola mundo");
+</code></div>
+Got: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code" lang="javascript">console.log("Hola mundo");
+</code></div>
+Pass: YES
+---
+Test 55:
+Input: ````
+```
+console.log("nested");
+```
+````
+Expected: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code">```
+console.log("nested");
+```
+</code></div>
+Got: <div class="jt-yxtus jt-yxtus-code-block"><button class="jt-yxtus" onclick="navigator.clipboard.writeText(this.nextElementSibling.textContent)">Copy</button><code class="jt-yxtus jt-yxtus-code">```
+console.log("nested");
+```
+</code></div>
+Pass: YES
+---
+Tests passed: 55/55
 All tests passed successfully!

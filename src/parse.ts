@@ -8,16 +8,19 @@ import media from "./modules/media.ts";
 import table from "./modules/table.ts";
 
 const parse = (text: string): string => {
-    // Paso 1: Procesar media placeholders (necesita URLs reales para extraer IDs)
-    let protectedText = media.insertPlaceholders(text);
+    // Paso 1: Procesar code placeholders (proteger contenido de codeblocks)
+    let protectedText = code.insertPlaceholders(text);
 
-    // Paso 2: Procesar advanced placeholders
+    // Paso 2: Procesar media placeholders (necesita URLs reales para extraer IDs)
+    protectedText = media.insertPlaceholders(protectedText);
+
+    // Paso 3: Procesar advanced placeholders
     protectedText = advanced.insertPlaceholders(protectedText);
 
-    // Paso 2.5: Procesar icons placeholders
+    // Paso 3.5: Procesar icons placeholders
     protectedText = icons.insertPlaceholders(protectedText);
 
-    // Paso 3: Proteger URLs
+    // Paso 4: Proteger URLs
     const urlRegex = /(https?:\/\/[^)\s}]+)/g;
     const urls: string[] = [];
     protectedText = protectedText.replace(urlRegex, (match) => {
@@ -25,8 +28,7 @@ const parse = (text: string): string => {
         return `§§§URL_${urls.length - 1}§§§`;
     });
 
-    // Paso 4: Procesar code, table, list, decorators y basic placeholders
-    protectedText = code.insertPlaceholders(protectedText);
+    // Paso 5: Procesar table, list, decorators y basic placeholders
     protectedText = table.insertPlaceholders(protectedText);
     protectedText = list.insertPlaceholders(protectedText);
     protectedText = decorators.insertPlaceholders(protectedText);
