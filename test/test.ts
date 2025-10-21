@@ -189,6 +189,30 @@ const tests = [
     {
         input: '[!{blue}(Blue link)](http://example.com)',
         expected: '<a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>'
+    },
+    {
+        input: '-*- Texto centrado',
+        expected: '<p class="jt-yxtus" style="text-align: center;">Texto centrado</p>'
+    },
+    {
+        input: '*-- Texto alineado a la izquierda',
+        expected: '<p class="jt-yxtus" style="text-align: left;">Texto alineado a la izquierda</p>'
+    },
+    {
+        input: '--* Texto alineado a la derecha',
+        expected: '<p class="jt-yxtus" style="text-align: right;">Texto alineado a la derecha</p>'
+    },
+    {
+        input: '-*- Texto *negrita* centrado',
+        expected: '<p class="jt-yxtus" style="text-align: center;">Texto <strong class="jt-yxtus">negrita</strong> centrado</p>'
+    },
+    {
+        input: '*-- Texto /cursiva/ a la izquierda',
+        expected: '<p class="jt-yxtus" style="text-align: left;">Texto <em class="jt-yxtus">cursiva</em> a la izquierda</p>'
+    },
+    {
+        input: '--* Texto _subrayado_ a la derecha',
+        expected: '<p class="jt-yxtus" style="text-align: right;">Texto <u class="jt-yxtus">subrayado</u> a la derecha</p>'
     }
 ];
 

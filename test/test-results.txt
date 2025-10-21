@@ -330,5 +330,41 @@ Expected: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-
 Got: <a href="http://example.com" target="_blank" class="jt-yxtus jt-yxtus-link"><span class="jt-yxtus" style="color:blue!important">Blue link</span></a>
 Pass: YES
 ---
-Tests passed: 46/46
+Test 47:
+Input: -*- Texto centrado
+Expected: <p class="jt-yxtus" style="text-align: center;">Texto centrado</p>
+Got: <p class="jt-yxtus" style="text-align: center;">Texto centrado</p>
+Pass: YES
+---
+Test 48:
+Input: *-- Texto alineado a la izquierda
+Expected: <p class="jt-yxtus" style="text-align: left;">Texto alineado a la izquierda</p>
+Got: <p class="jt-yxtus" style="text-align: left;">Texto alineado a la izquierda</p>
+Pass: YES
+---
+Test 49:
+Input: --* Texto alineado a la derecha
+Expected: <p class="jt-yxtus" style="text-align: right;">Texto alineado a la derecha</p>
+Got: <p class="jt-yxtus" style="text-align: right;">Texto alineado a la derecha</p>
+Pass: YES
+---
+Test 50:
+Input: -*- Texto *negrita* centrado
+Expected: <p class="jt-yxtus" style="text-align: center;">Texto <strong class="jt-yxtus">negrita</strong> centrado</p>
+Got: <p class="jt-yxtus" style="text-align: center;">Texto <strong class="jt-yxtus">negrita</strong> centrado</p>
+Pass: YES
+---
+Test 51:
+Input: *-- Texto /cursiva/ a la izquierda
+Expected: <p class="jt-yxtus" style="text-align: left;">Texto <em class="jt-yxtus">cursiva</em> a la izquierda</p>
+Got: <p class="jt-yxtus" style="text-align: left;">Texto <em class="jt-yxtus">cursiva</em> a la izquierda</p>
+Pass: YES
+---
+Test 52:
+Input: --* Texto _subrayado_ a la derecha
+Expected: <p class="jt-yxtus" style="text-align: right;">Texto <u class="jt-yxtus">subrayado</u> a la derecha</p>
+Got: <p class="jt-yxtus" style="text-align: right;">Texto <u class="jt-yxtus">subrayado</u> a la derecha</p>
+Pass: YES
+---
+Tests passed: 52/52
 All tests passed successfully!

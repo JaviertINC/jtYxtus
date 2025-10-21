@@ -28,6 +28,26 @@ const insertPlaceholders = (text: string): string => {
             continue;
         }
 
+        // Text alignment
+        if (trimmed.startsWith('-*- ')) {
+            const content = line.substring(4); // remove '-*- '
+            processedLines.push(`${startPlaceholder('ALIGN', 'center')}${content}${endPlaceholder('ALIGN')}`);
+            i++;
+            continue;
+        }
+        if (trimmed.startsWith('*-- ')) {
+            const content = line.substring(4); // remove '*-- '
+            processedLines.push(`${startPlaceholder('ALIGN', 'left')}${content}${endPlaceholder('ALIGN')}`);
+            i++;
+            continue;
+        }
+        if (trimmed.startsWith('--* ')) {
+            const content = line.substring(4); // remove '--* '
+            processedLines.push(`${startPlaceholder('ALIGN', 'right')}${content}${endPlaceholder('ALIGN')}`);
+            i++;
+            continue;
+        }
+
         const blockquoteMatch = line.match(/^>(.*)$/);
         if (blockquoteMatch) {
             const { blockquoteHtml, linesConsumed } = parseBlockquote(lines, i);
@@ -105,6 +125,11 @@ const replacePlaceholders = (text: string): string => {
 
     // Mark
     text = text.replace(/§§§MARK:S§§§([^§]+)§§§MARK:E§§§/g, (match, content) => `<mark class="jt-yxtus">${escapeHtml(content)}</mark>`);
+
+    // Text alignment
+    text = text.replace(/§§§ALIGN\{([^}]+)\}:S§§§([\s\S]*?)§§§ALIGN:E§§§/g, (match: string, align: string, content: string) => {
+        return `<p class="jt-yxtus" style="text-align: ${align};">${content}</p>`;
+    });
 
     // Blockquotes
     text = text.replace(/§§§BLOCKQUOTE\{([^|}]+)\|([^}]+)\}:S§§§([\s\S]*?)§§§BLOCKQUOTE:E§§§/g, (match: string, type: string, title: string, content: string) => {

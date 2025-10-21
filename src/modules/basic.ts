@@ -38,7 +38,7 @@ const insertPlaceholders = (text: string): string => {
             return line;
         }
 
-        if (line.trim() === '' || line.startsWith('§§§H') || line.startsWith('§§§CODE-BLOCK') || line.startsWith('§§§IMG') || line.startsWith('§§§VIDEO') || line.startsWith('§§§AUDIO') || line.startsWith('§§§YOUTUBE') || line.startsWith('§§§IFRAME') || line.startsWith('§§§BUTTON') || line.startsWith('§§§TABLE') || line.startsWith('§§§BLOCKQUOTE') || line.startsWith('§§§HR') || line.startsWith('§§§OL') || line.startsWith('§§§UL') || line.startsWith('§§§LI') || line.startsWith('§§§TASK-UL') || line.startsWith('§§§TASK-LI') || line.startsWith('>')) {
+        if (line.trim() === '' || line.startsWith('§§§H') || line.startsWith('§§§CODE-BLOCK') || line.startsWith('§§§IMG') || line.startsWith('§§§VIDEO') || line.startsWith('§§§AUDIO') || line.startsWith('§§§YOUTUBE') || line.startsWith('§§§IFRAME') || line.startsWith('§§§BUTTON') || line.startsWith('§§§TABLE') || line.startsWith('§§§BLOCKQUOTE') || line.startsWith('§§§HR') || line.startsWith('§§§OL') || line.startsWith('§§§UL') || line.startsWith('§§§LI') || line.startsWith('§§§TASK-UL') || line.startsWith('§§§TASK-LI') || line.startsWith('§§§ALIGN') || line.startsWith('>')) {
             return line;
         }
         return `${startPlaceholder('PARAGRAPH')}${line}${endPlaceholder('PARAGRAPH')}`;

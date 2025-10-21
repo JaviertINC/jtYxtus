@@ -83,6 +83,9 @@ document.body.innerHTML = output;
 | [Abbreviations](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `{HTML}\n*[HTML]: Hyper Text Markup Language` |
 | [Colors](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `!{color}(texto)` |
 | [Highlight](https://github.com/JaviertINC/jtYxtus/wiki/Decorators) | Implementado | `==texto==` |
-| [Icons](https://github.com/JaviertINC/jtYxtus/wiki/Icons-emojis) | Implementado | `;heart;` |
+| [Icons](https://github.com/JaviertINC/jtYxtus/wiki/Icons) | Implementado | `;heart;` |
+| [Text Align Center](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `-*- texto` |
+| [Text Align Left](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `*-- texto` |
+| [Text Align Right](https://github.com/JaviertINC/jtYxtus/wiki/Advanced) | Implementado | `--* texto` |
 | Footnotes | Planificado | `Texto[^1]` |
 | Captys embed | Planificado | `[captys{512x512}](URL o ID)` |
